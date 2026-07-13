@@ -1,0 +1,11 @@
+Start
+Create graph
+Mark current node as visited
+Print current node
+
+For each neighbor
+    If not visited
+        Visit neighbor
+End For
+
+Stop
