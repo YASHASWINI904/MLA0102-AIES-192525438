@@ -1,0 +1,13 @@
+Start
+Create graph
+Create empty queue
+Mark start node as visited
+Add start node to queue
+
+While queue is not empty
+    Remove first node
+    Print node
+    Add all unvisited neighbors to queue
+End While
+
+Stop
