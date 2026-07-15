@@ -1,0 +1,16 @@
+Start the algorithm.
+Represent the graph with nodes and edge costs.
+Create a priority queue and insert the source node with cost 0.
+Create an empty visited set.
+While the priority queue is not empty:
+Remove the node with the minimum cumulative cost.
+If the current node is the destination:
+Display the least-cost path (if stored) and total cost.
+Stop the algorithm.
+If the node has not been visited:
+Mark it as visited.
+For each neighboring node:
+Calculate the new cumulative cost.
+Insert the neighbor into the priority queue with the updated cost.
+If the destination is not found after the queue becomes empty, display "No path found."
+Stop.
