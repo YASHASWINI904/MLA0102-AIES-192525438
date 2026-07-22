@@ -1,0 +1,21 @@
+Start
+
+Read start node and goal node
+
+Put start node in OPEN list
+
+While OPEN list is not empty
+    Sort OPEN list by heuristic value
+    Remove node with smallest heuristic
+
+    If node is goal
+        Print path
+        Stop
+
+    Mark node as visited
+
+    Add all unvisited neighbours to OPEN list
+
+End While
+
+Stop
