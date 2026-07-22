@@ -1,0 +1,20 @@
+Start
+
+Read start rack and destination rack
+
+Add start rack to OPEN list
+
+While OPEN list is not empty
+    Sort OPEN list by heuristic value
+    Remove rack with smallest heuristic
+
+    If rack is destination
+        Print path
+        Stop
+
+    Mark rack as visited
+
+    Add all unvisited neighboring racks to OPEN list
+
+Stop
+
