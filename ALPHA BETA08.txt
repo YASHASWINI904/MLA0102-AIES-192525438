@@ -1,0 +1,24 @@
+Algorithm AlphaBeta(depth, node, isMax, alpha, beta)
+
+If depth = maximum depth
+    Return leaf value
+
+If isMax
+    best = -∞
+    For each child
+        best = max(best, AlphaBeta(child))
+        alpha = max(alpha, best)
+        If alpha ≥ beta
+            Stop
+    Return best
+
+Else
+    best = +∞
+    For each child
+        best = min(best, AlphaBeta(child))
+        beta = min(beta, best)
+        If alpha ≥ beta
+            Stop
+    Return best
+
+End
