@@ -1,0 +1,11 @@
+Algorithm Minimax(depth, node, isMax)
+
+If depth = maximum depth
+    Return leaf value
+
+If isMax
+    Return maximum of left and right child
+Else
+    Return minimum of left and right child
+
+End
