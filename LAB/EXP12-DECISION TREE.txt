@@ -1,30 +1,36 @@
 BEGIN
 
-1. Create a dataset containing:
-      Income
-      Credit Score
-      Employment
-      Loan Approval
+Create dataset with Age, Income and Credit Score
 
-2. Convert categorical values into numerical values.
+Store loan status:
+    1 = Approved
+    0 = Rejected
 
-3. Separate the dataset into:
-      X = input features
-      Y = target (Loan Approval)
+FOR each customer in dataset
+    Display customer details
+    Display corresponding loan status
+END FOR
 
-4. Create a Decision Tree Classifier.
+Define PREDICT(age, income, credit)
 
-5. Train the classifier using X and Y.
+    IF credit >= 700 THEN
+        RETURN "APPROVED"
 
-6. Enter the details of a new customer.
+    ELSE IF income >= 50000 AND credit >= 650 THEN
+        RETURN "APPROVED"
 
-7. Use the trained Decision Tree to predict the loan status.
+    ELSE
+        RETURN "REJECTED"
+    END IF
 
-8. IF prediction = Approved
-       Display "Loan Approved"
-   ELSE
-       Display "Loan Rejected"
+END PREDICT
 
-9. Display the Decision Tree.
+Read new customer's Age
+Read new customer's Income
+Read new customer's Credit Score
+
+Call PREDICT with customer details
+
+Display Loan Status
 
 END
