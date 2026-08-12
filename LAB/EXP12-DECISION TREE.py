@@ -1,63 +1,52 @@
-import pandas as pd
-from sklearn.preprocessing import LabelEncoder
-from sklearn.tree import DecisionTreeClassifier, plot_tree
-import matplotlib.pyplot as plt
+# Decision Tree Classifier - Pure Python
 
-# Create dataset
-data = {
-    'Income': ['Low', 'Low', 'Medium', 'Medium', 'High',
-               'High', 'Medium', 'Low', 'High', 'Medium'],
+# Dataset
+# [Age, Income, Credit Score]
+X = [
+    [25, 30000, 600],
+    [35, 50000, 700],
+    [45, 80000, 750],
+    [23, 25000, 580],
+    [40, 60000, 720],
+    [30, 40000, 650],
+    [50, 90000, 780],
+    [28, 35000, 620],
+    [38, 55000, 710],
+    [55, 95000, 800]
+]
 
-    'Credit_Score': ['Poor', 'Good', 'Good', 'Excellent', 'Good',
-                     'Excellent', 'Poor', 'Poor', 'Excellent', 'Good'],
+# 1 = Approved, 0 = Rejected
+Y = [0, 1, 1, 0, 1, 0, 1, 0, 1, 1]
 
-    'Employment': ['No', 'Yes', 'Yes', 'Yes', 'Yes',
-                   'No', 'Yes', 'No', 'Yes', 'Yes'],
+# Simple decision rules
+def predict(age, income, credit):
+    if credit >= 700:
+        return "APPROVED"
+    elif income >= 50000 and credit >= 650:
+        return "APPROVED"
+    else:
+        return "REJECTED"
 
-    'Loan_Approved': ['No', 'No', 'Yes', 'Yes', 'Yes',
-                      'Yes', 'No', 'No', 'Yes', 'Yes']
-}
+# Display training data
+print("Loan Training Data")
+print("------------------")
 
-df = pd.DataFrame(data)
+for i in range(len(X)):
+    status = "Approved" if Y[i] == 1 else "Rejected"
+    print(X[i], "->", status)
 
-# Encode categorical data
-encoder = LabelEncoder()
+# Test new customer
+print("\nNew Loan Application")
+print("--------------------")
 
-for column in df.columns:
-    df[column] = encoder.fit_transform(df[column])
+age = 32
+income = 45000
+credit = 680
 
-# Separate input and output
-X = df[['Income', 'Credit_Score', 'Employment']]
-y = df['Loan_Approved']
+print("Age:", age)
+print("Income:", income)
+print("Credit Score:", credit)
 
-# Create Decision Tree Classifier
-model = DecisionTreeClassifier(
-    criterion='entropy',
-    random_state=42
-)
+result = predict(age, income, credit)
 
-# Train the model
-model.fit(X, y)
-
-# Predict loan for a new customer
-new_customer = [[0, 0, 1]]
-
-prediction = model.predict(new_customer)
-
-# Display result
-if prediction[0] == 1:
-    print("Loan Approved")
-else:
-    print("Loan Rejected")
-
-# Display Decision Tree
-plt.figure(figsize=(12, 8))
-
-plot_tree(
-    model,
-    feature_names=X.columns,
-    class_names=['Rejected', 'Approved'],
-    filled=True
-)
-
-plt.show()
+print("Loan Status:", result)
