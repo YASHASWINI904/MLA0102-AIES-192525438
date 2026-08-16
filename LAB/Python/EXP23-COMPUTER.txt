@@ -1,0 +1,36 @@
+START
+
+Initialize available facts:
+    computer_not_starting
+    dim_screen
+
+Define production rules:
+
+    Rule 1:
+    IF computer_not_starting AND dim_screen
+    THEN battery_problem
+
+    Rule 2:
+    IF battery_problem
+    THEN battery_inspection
+
+    Rule 3:
+    IF battery_inspection
+    THEN service_required
+
+REPEAT
+
+    FOR each rule:
+        Check whether all conditions of the rule
+        are present in the available facts
+
+        IF conditions are satisfied:
+            IF conclusion is not already present:
+                Add conclusion to facts
+                Display the derived conclusion
+
+UNTIL no new conclusion is derived
+
+Display all final conclusions
+
+STOP
